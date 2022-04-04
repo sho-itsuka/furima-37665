@@ -1,24 +1,55 @@
-# README
+## users テーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column             | Type   | Options                    |
+| ------------------ | ------ | -------------------------- |
+| email              | string | null: false, unique: true  |
+| encrypted_password | string | null: false                |
+| name               | string | null: false                |
 
-Things you may want to cover:
+- has_many :items, through: :orders
+- has_many :orders
 
-* Ruby version
 
-* System dependencies
+## items テーブル
 
-* Configuration
+| Column         | Type       | Options                        |
+| -------------- | ---------- | -------------------------------|
+| name           | string     | null: false                    |
+| price          | integer    | null: false                    |
+| status         | string     | null: false                    |
+| brand          | string     | null: false                    |
+| category       | string     | null: false                    |
+| delivery_price | integer    | null: false                    |
+| delivery_days  | integer    | null: false                    |
+| delivery_area  | string     | null: false                    |
+| user_id        | references | null: false, foreign_key: true |
 
-* Database creation
+- belongs_to :users, through: :orders
+- has_many :orders
 
-* Database initialization
 
-* How to run the test suite
+## orders テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| user_id     | references | null: false  foreign_key: true |
+| item_id     | references | null: false, foreign_key: true |
+| delivery_id | references | null: false, foreign_key: true |
 
-* Deployment instructions
+- belongs_to :users
+- belongs_to :items
+- has_one :deliveries
 
-* ...
+
+## deliveries テーブル
+
+| Column      | Type    | Options     |
+| ----------- | --------| ------------|
+| postcode    | integer | null: false |
+| prefecture  | text    | null: false |
+| city        | text    | null: false |
+| block       | text    | null: false |
+| building    | text    | null: false |
+| phonenumber | integer | null: false |
+
+- belongs_to :orders
