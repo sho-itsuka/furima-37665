@@ -1,10 +1,15 @@
 ## users テーブル
 
-| Column             | Type   | Options                    |
-| ------------------ | ------ | -------------------------- |
-| email              | string | null: false, unique: true  |
-| encrypted_password | string | null: false                |
-| name               | string | null: false                |
+| Column             | Type    | Options                    |
+| ------------------ | ------- | -------------------------- |
+| nickname           | string  | null: false                |
+| email              | string  | null: false, unique: true  |
+| encrypted_password | string  | null: false                |
+| last_name          | string  | null: false                |
+| first_name         | string  | null: false                |
+| last_name_kana     | string  | null: false                |
+| first_name_kana    | string  | null: false                |
+| birth_date_id      | integer | null: false                |
 
 - has_many :items, through: :orders
 - has_many :orders
@@ -14,42 +19,40 @@
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | -------------------------------|
-| name           | string     | null: false                    |
+| title          | string     | null: false                    |
 | price          | integer    | null: false                    |
-| status         | string     | null: false                    |
-| brand          | string     | null: false                    |
-| category       | string     | null: false                    |
-| delivery_price | integer    | null: false                    |
-| delivery_days  | integer    | null: false                    |
-| delivery_area  | string     | null: false                    |
-| user_id        | references | null: false, foreign_key: true |
+| description    | text       | null: false                    |
+| category_id    | integer    | null: false                    |
+| item_status_id | integer    | null: false                    |
+| ship_cost_id   | integer    | null: false                    |
+| ship_day_id    | integer    | null: false                    |
+| ship_area_id   | integer    | null: false                    |
+| user           | references | null: false, foreign_key: true |
 
-- belongs_to :users, through: :orders
-- has_many :orders
+- belongs_to :user, through: :order
+- belongs_to :order
 
 
 ## orders テーブル
 
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| user_id     | references | null: false  foreign_key: true |
-| item_id     | references | null: false, foreign_key: true |
-| delivery_id | references | null: false, foreign_key: true |
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| user     | references | null: false  foreign_key: true |
+| item     | references | null: false, foreign_key: true |
 
-- belongs_to :users
-- belongs_to :items
-- has_one :deliveries
+- belongs_to :user
+- belongs_to :item
+- has_one :delivery
 
 
 ## deliveries テーブル
 
 | Column      | Type    | Options     |
 | ----------- | --------| ------------|
-| postcode    | integer | null: false |
-| prefecture  | text    | null: false |
-| city        | text    | null: false |
-| block       | text    | null: false |
-| building    | text    | null: false |
-| phonenumber | integer | null: false |
+| postcode    | string  | null: false |
+| prefecture  | string  | null: false |
+| city        | string  | null: false |
+| block       | string  | null: false |
+| phonenumber | string  | null: false |
 
-- belongs_to :orders
+- belongs_to :order
