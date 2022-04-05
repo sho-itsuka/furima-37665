@@ -191,7 +191,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="51" value="Deliveries Table" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;strokeColor=default;fillColor=none;fontColor=#FF0000;" parent="1" vertex="1">
-                    <mxGeometry x="120" y="760" width="240" height="270" as="geometry"/>
+                    <mxGeometry x="120" y="760" width="240" height="240" as="geometry"/>
                 </mxCell>
                 <mxCell id="52" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;strokeColor=default;" parent="51" vertex="1">
                     <mxGeometry y="30" width="240" height="30" as="geometry"/>
@@ -332,15 +332,10 @@
                 <mxCell id="81" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="150" y="950" as="sourcePoint"/>
-                        <mxPoint x="150" y="1030" as="targetPoint"/>
+                        <mxPoint x="150" y="1000" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="82" value="order" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;strokeColor=default;" vertex="1" parent="1">
-                    <mxGeometry x="150" y="1000" width="210" height="30" as="geometry">
-                        <mxRectangle width="210" height="40" as="alternateBounds"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="83" value="user" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;strokeColor=default;" vertex="1" parent="1">
                     <mxGeometry x="150" y="970" width="210" height="30" as="geometry">
                         <mxRectangle width="210" height="40" as="alternateBounds"/>
                     </mxGeometry>

@@ -54,6 +54,6 @@
 | city         | string     | null: false                    |
 | block        | string     | null: false                    |
 | phonenumber  | string     | null: false                    |
-| oder         | references | null: false, foreign_key: true | 
+| order        | references | null: false, foreign_key: true | 
 
 - belongs_to :order
