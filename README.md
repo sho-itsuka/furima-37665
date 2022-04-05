@@ -30,7 +30,7 @@
 | user           | references | null: false, foreign_key: true |
 
 - belongs_to :user
-- belongs_to :order
+- has_one :order
 
 
 ## orders テーブル
