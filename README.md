@@ -11,7 +11,7 @@
 | first_name_kana    | string  | null: false                |
 | birth_date_id      | integer | null: false                |
 
-- has_many :items, through: :orders
+- has_many :items
 - has_many :orders
 
 
@@ -29,7 +29,7 @@
 | ship_area_id   | integer    | null: false                    |
 | user           | references | null: false, foreign_key: true |
 
-- belongs_to :user, through: :order
+- belongs_to :user
 - belongs_to :order
 
 
@@ -47,12 +47,13 @@
 
 ## deliveries テーブル
 
-| Column      | Type    | Options     |
-| ----------- | --------| ------------|
-| postcode    | string  | null: false |
-| prefecture  | string  | null: false |
-| city        | string  | null: false |
-| block       | string  | null: false |
-| phonenumber | string  | null: false |
+| Column       | Type       | Options                        |
+| ------------ | -----------| -------------------------------|
+| postcode     | string     | null: false                    |
+| ship_area_id | integer    | null: false                    |
+| city         | string     | null: false                    |
+| block        | string     | null: false                    |
+| phonenumber  | string     | null: false                    |
+| oder         | references | null: false, foreign_key: true | 
 
 - belongs_to :order
