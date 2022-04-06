@@ -1,0 +1,21 @@
+ja:
+  time:
+    formats:
+      default: "%m/%d %H:%M"
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        email: email
+        password: password
+        password_confirmation: password_confirmation
+        last_name: 名字
+        first_name: 名前
+        last_name_kana: 名字(カタカナ)
+        first_name_kana: 名前(カタカナ)
+        birth_date: 生年月日
+  # ActiveModelを使用している場合、続けて追記
+  #activemodel:
+    #attributes:
+      #モデル名:
+        #カラム名: 対応する日本語
