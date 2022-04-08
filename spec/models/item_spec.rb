@@ -14,17 +14,17 @@ RSpec.describe Item, type: :model do
 
     context '出品できないとき' do
       it '「商品名」がないと出品できない' do
-        @item.title = ""
+        @item.title = ''
         @item.invalid?
         expect(@item.errors.full_messages).to include("Title can't be blank")
       end
       it '「商品の価格」がないと出品できない' do
-        @item.price = ""
+        @item.price = ''
         @item.invalid?
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
       it '「商品の説明」がないと出品できない' do
-        @item.description = ""
+        @item.description = ''
         @item.invalid?
         expect(@item.errors.full_messages).to include("Description can't be blank")
       end
@@ -61,17 +61,17 @@ RSpec.describe Item, type: :model do
       it ' 商品の価格は¥300以上でないと出品できない' do
         @item.price = '250'
         @item.invalid?
-        expect(@item.errors.full_messages).to include("Price is out of setting range")
+        expect(@item.errors.full_messages).to include('Price is out of setting range')
       end
       it ' 商品の価格は¥9,999,999以下でないと出品できない' do
         @item.price = '10,000,000'
         @item.invalid?
-        expect(@item.errors.full_messages).to include("Price is out of setting range")
+        expect(@item.errors.full_messages).to include('Price is out of setting range')
       end
       it ' 商品の価格は全角数字だと保存できない' do
         @item.price = '１０００'
         @item.invalid?
-        expect(@item.errors.full_messages).to include("Price is out of setting range")
+        expect(@item.errors.full_messages).to include('Price is out of setting range')
       end
     end
   end
