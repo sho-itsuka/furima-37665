@@ -7,7 +7,7 @@ RSpec.describe Item, type: :model do
 
   describe '商品の出品' do
     context '出品できるとき' do
-      it '商品名、商品の価格、商品の説明、商品のカテゴリー、商品の状態、配送料の負担、発送にかかる日程、発送元の地域、商品画像があれば出品できる' do
+      it '商品名、商品の価格、商品の説明、商品のカテゴリー、商品の状態、配送料の負担、発送にかかる日程、発送元の地域、商品画像があり、かつユーザーが紐付けば出品できる' do
         expect(@item).to be_valid
       end
     end
@@ -53,7 +53,7 @@ RSpec.describe Item, type: :model do
         @item.invalid?
         expect(@item.errors.full_messages).to include("Ship area can't be blank")
       end
-      it '「商品画像」が指定されていないと出品できない' do
+      it '「商品画像」が空では出品できない' do
         @item.image = nil
         @item.invalid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
@@ -72,6 +72,11 @@ RSpec.describe Item, type: :model do
         @item.price = '１０００'
         @item.invalid?
         expect(@item.errors.full_messages).to include('Price is out of setting range')
+      end
+      it ' ユーザーが紐付いていなければ出品できない' do
+        @item.user = nil
+        @item.invalid?
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
   end
