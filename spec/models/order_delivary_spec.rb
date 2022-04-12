@@ -20,6 +20,11 @@ RSpec.describe OrderDelivary, type: :model do
     end
 
     context '内容に問題がある場合' do
+      it 'tokenが空だと保存できないこと' do
+        @order_delivary.token = nil
+        @order_delivary.valid?
+        expect(@order_delivary.errors.full_messages).to include("Token can't be blank")
+      end
       it 'postcodeが空だと保存できないこと' do
         @order_delivary.postcode = ''
         @order_delivary.valid?
