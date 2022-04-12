@@ -15,6 +15,6 @@ class OrderDelivary
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
-    Delivary.create(postcode: postcode, ship_area: @ship_area, city: city, block: block, building: building, phonenumber: phonenumber, order_id: order.id)
+    Delivary.create(postcode: postcode, ship_area_id: ship_area_id, city: city, block: block, building: building, phonenumber: phonenumber, order_id: order.id)
   end
 end
