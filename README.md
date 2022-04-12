@@ -54,6 +54,7 @@
 | city         | string     | null: false                    |
 | block        | string     | null: false                    |
 | phonenumber  | string     | null: false                    |
+| building     | string     |
 | order        | references | null: false, foreign_key: true | 
 
 - belongs_to :order
