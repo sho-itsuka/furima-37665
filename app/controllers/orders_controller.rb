@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
 
   def index
     @order_delivary = OrderDelivary.new
+    redirect_to root_path if current_user == @item.user
   end
 
   def new
