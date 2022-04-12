@@ -33,7 +33,7 @@ RSpec.describe OrderDelivary, type: :model do
       it 'postcodeが3桁ハイフン4桁」でないと保存できないこと' do
         @order_delivary.postcode = '1234567'
         @order_delivary.valid?
-        expect(@order_delivary.errors.full_messages).to include("Postcode is invalid. Enter it as follows(e.g. 123-4567)")
+        expect(@order_delivary.errors.full_messages).to include('Postcode is invalid. Enter it as follows(e.g. 123-4567)')
       end
       it '都道府県(ship_area)を選択していないと保存できないこと' do
         @order_delivary.ship_area_id = 1
@@ -58,12 +58,13 @@ RSpec.describe OrderDelivary, type: :model do
       it '電話番号(phonenumber)が10桁以上11桁以内でないと保存できないこと' do
         @order_delivary.phonenumber = '090111222'
         @order_delivary.valid?
-        expect(@order_delivary.errors.full_messages).to include("Phonenumber is too short")
+        expect(@order_delivary.errors.full_messages).to include('Phonenumber is too short')
       end
       it '電話番号(phonenumber)が半角数値でないと保存できないこと' do
         @order_delivary.phonenumber = 'aaabbbbcccc'
         @order_delivary.valid?
-        expect(@order_delivary.errors.full_messages).to include("Phonenumber is invalid. Input only number", "Phonenumber is too short")
+        expect(@order_delivary.errors.full_messages).to include('Phonenumber is invalid. Input only number',
+                                                                'Phonenumber is too short')
       end
       it 'userが紐付いていないと保存できないこと' do
         @order_delivary.user_id = nil
