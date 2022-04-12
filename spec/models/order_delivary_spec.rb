@@ -60,6 +60,11 @@ RSpec.describe OrderDelivary, type: :model do
         @order_delivary.valid?
         expect(@order_delivary.errors.full_messages).to include('Phonenumber is too short')
       end
+      it '電話番号(phonenumber)が12桁以上だと保存できないこと' do
+        @order_delivary.phonenumber = '090111122223333'
+        @order_delivary.valid?
+        expect(@order_delivary.errors.full_messages).to include('Phonenumber is invalid. Input only number')
+      end
       it '電話番号(phonenumber)が半角数値でないと保存できないこと' do
         @order_delivary.phonenumber = 'aaabbbbcccc'
         @order_delivary.valid?
