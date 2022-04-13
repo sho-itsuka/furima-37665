@@ -1,0 +1,3 @@
+class Delivary < ApplicationRecord
+  belongs_to :order
+end
